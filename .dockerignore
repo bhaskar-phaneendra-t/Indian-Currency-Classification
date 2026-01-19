@@ -1,0 +1,8 @@
+data/
+projectenv/
+__pycache__/
+*.pth
+.git
+.gitignore
+notebook/
+.vscode/
