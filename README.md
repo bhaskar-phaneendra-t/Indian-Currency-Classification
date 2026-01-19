@@ -198,16 +198,19 @@ currency-classification/
 python -m venv projectenv
 projectenv\Scripts\activate
 ```
+### Step 2: Install Dependencies
 ```bash
-# Step 2: Install Dependencies
+
 pip install -r requirements.txt
 ```
+### Step 3: Train the Model
 ```bash
-# Step 3: Train the Model
+
 python -m src.training.train
 ```
+### Step 4: Evaluate on Test Data
 ```bash
-# Step 4: Evaluate on Test Data
+
 python -m src.training.evaluate
 ```
 ```markdown
