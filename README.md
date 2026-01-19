@@ -213,7 +213,7 @@ python -m src.training.train
 
 python -m src.training.evaluate
 ```
-```markdown
+
 ## 13. Technologies Used
 
 - Python  
