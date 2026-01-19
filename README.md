@@ -1,4 +1,4 @@
-# 🇮🇳 Indian Currency Classification using CNN (ResNet-18)
+#  Indian Currency Classification using CNN (ResNet-18)
 
 ## 1. Introduction
 
