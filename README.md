@@ -159,7 +159,7 @@ print(result)
 ```
 ---
 ## 11. Project Structure
-
+```markdown
 currency-classification/
 │
 ├── data/
@@ -188,7 +188,7 @@ currency-classification/
 ├── README.md
 └── .gitignore
 
----
+```
 
 
 ## 12. How to Run the Project
