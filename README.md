@@ -163,6 +163,7 @@ print(result)
 currency-classification/
 │
 ├── data/
+|   └── raw/ #keep the downloaded folder here
 │   └── processed/
 │       └── splits/
 │           ├── train.csv
@@ -189,7 +190,8 @@ currency-classification/
 └── .gitignore
 
 ```
-
+https://www.kaggle.com/datasets/tatapudibhaskar/inidian-currecncy-images-dataset
+this is the link of dataset download from kaggle and drop it in data/raw
 
 ## 12. How to Run the Project
 
