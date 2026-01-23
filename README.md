@@ -160,34 +160,63 @@ print(result)
 ---
 ## 11. Project Structure
 ```markdown
-currency-classification/
+INDIAN-CURRENCY-CLASSIFICATION-MAIN/
 │
 ├── data/
-|   └── raw/ #keep the downloaded folder here
-│   └── processed/
-│       └── splits/
-│           ├── train.csv
-│           ├── val.csv
-│           └── test.csv
+│   ├── processed/
+│   │   ├── metadata/
+│   │   │   └── metadata.csv
+│   │   └── splits/
+│   │       ├── train.csv
+│   │       ├── val.csv
+│   │       └── test.csv
+│   │
+│   ├── raw/
+│   │   ├── 10/
+│   │   ├── 20/
+│   │   ├── 50/
+│   │   ├── 100/
+│   │   ├── 200/
+│   │   ├── 500/
+│   │   └── 2000/
+│
+├── logs/
+│
+├── projectenv/
 │
 ├── src/
-│   ├── training/
-│   │   ├── dataset.py
-│   │   ├── dataloader.py
-│   │   ├── train.py
-│   │   └── evaluate.py
-│   │
 │   ├── inference/
 │   │   └── predict.py
 │   │
+│   ├── preprocessing/
+│   │   ├── __pycache__/
+│   │   ├── checking_metadata.py
+│   │   ├── data_ingestion.py
+│   │   ├── dataloader.py
+│   │   ├── rename_images.py
+│   │   └── train_test_val.py
+│   │
+│   ├── training/
+│   │   ├── __pycache__/
+│   │   ├── dataloader.py
+│   │   ├── dataset.py
+│   │   ├── evaluate.py
+│   │   └── train.py
+│   │
 │   └── utils/
-│       ├── logger.py
-│       └── exception.py
+│       ├── __pycache__/
+│       ├── __init__.py
+│       ├── dir_paths.py
+│       ├── exception.py
+│       └── logger.py
 │
-├── notebook/
-├── requirements.txt
+├── .dockerignore
+├── .gitignore
+├── best_currency_model.pth
+├── Dockerfile
 ├── README.md
-└── .gitignore
+└── requirements.txt
+
 
 ```
 https://www.kaggle.com/datasets/tatapudibhaskar/inidian-currecncy-images-dataset
@@ -201,19 +230,45 @@ python -m venv projectenv
 projectenv\Scripts\activate
 ```
 ### Step 2: Install Dependencies
+Download the dataset from Kaggle:
 ```bash
 
 pip install -r requirements.txt
 ```
-### Step 3: Train the Model
+### Step 3:Download and Place the Dataset
 ```bash
 
-python -m src.training.train
+data/raw/
+
 ```
-### Step 4: Evaluate on Test Data
+the folder structure looks like:
+```bash
+data/raw/
+├── 10/
+├── 20/
+├── 50/
+├── 100/
+├── 200/
+├── 500/
+└── 2000/
+```
+
+### Step 4: Rename Images to Prevent Data Leakage (Mandatory)
 ```bash
 
+python src/preprocessing/rename_images.py
+
+```
+
+### Step 5: Train the model
+```bash
+python -m src.training.train
+
+```
+### Step 6: Evaluate on test data
+```bash
 python -m src.training.evaluate
+
 ```
 
 ## 13. Technologies Used
